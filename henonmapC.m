@@ -10,7 +10,6 @@ ys = yfp - 0.785*t;
 hold on
 plot(xs,ys,'-r','linewidth',40);
 iters = 100;
-colors = 0;
-applymap(xs,ys,iters,colors);
+applymap(xs,ys,iters);
 axis([xfp,xfp+0.2,yfp-0.758*0.2,yfp]);
 hold off

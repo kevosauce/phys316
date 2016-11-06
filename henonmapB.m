@@ -1,8 +1,7 @@
-x = [0.568, 0.593, 0.536, 0.61, 0.55, 0.594, 0.56];
-y = [0.124, 0.17, 0.1, 0.175, 0.1, 0.15, 0.1];
+x = [0.568, 0.593, 0.536, 0.61, 0.55, 0.594, 0.56]';
+y = [0.124, 0.17, 0.1, 0.175, 0.1, 0.15, 0.1]';
 iters = 5000;
-colors = ['k' 'r' 'g' 'b' 'c' 'y' 'm'];
-[x,y] = applymap(x,y,iters,colors);
+[x,y] = applymap(x,y,iters);
 axis([0.53,0.63,0.1,0.2]);
 eps = 0.005;
 %find the first occurrence of a new point close to the original point
