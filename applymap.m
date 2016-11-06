@@ -1,5 +1,6 @@
-function applymap(x,y,tau, iters)
-iters
+function applymap(x,y, iters)
+alpha = 0.2114;
+tau = 2*pi*alpha;
    for i=1:iters
       x(:,:,i+1) = x(:,:,i) * cos(tau) - (y(:,:,i) - x(:,:,i).^2) * sin(tau);
       y(:,:,i+1) = x(:,:,i) * sin(tau) + (y(:,:,i) - x(:,:,i).^2) * cos(tau);
