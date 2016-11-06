@@ -9,12 +9,9 @@ for i=1:iters
    y(x > 1 | x < -1 | y > 1 | y < -1) = 0;
 end
    
-clf
-hold on
 for i=1:size(x,2)
-   plot(x(:,i),y(:,i),'.', 'color', colors(i))
+   plot(x(:,i),y(:,i),'.', 'color', rand(1,3))%colors(i))
 end
-hold off
 
 end
 
