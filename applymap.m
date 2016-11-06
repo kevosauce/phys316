@@ -9,7 +9,7 @@ for i=1:iters
    y(x > 1 | x < -1 | y > 1 | y < -1) = 0;
 end
    
-plot(x',y','.')
+plot(x',y')
 
 end
 
