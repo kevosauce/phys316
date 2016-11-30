@@ -1,9 +1,9 @@
 ## Phys 316, HW6, Kevin Ullmann
 ## 3.
 
-I chose to write the code using Octave (very similar to MATLAB, but open source) and split the problem into five files. There are four scripts, `henonmap.m, henonmapB.m, henonmapC.m`, and `henonStochastic.m`, and they use a common function defined in `applymap.m` which generates the map.
+I chose to write the code using Octave (very similar to MATLAB, but open source 😄) and split the problem into five files. There are four scripts, `henonmap.m, henonmapB.m, henonmapC.m`, and `henonStochastic.m`, and they use a common function defined in `applymap.m` which generates the map.
 
-The common function, defined in applymap.m is here:
+The common function, defined in `applymap.m` is here:
 
 ```MATLAB
 function [x,y] = applymap(x,y, iters)
@@ -25,7 +25,7 @@ end
 The function simply appends columns to `x` and `y` with the new points and plots the result.
 
 ### 3a
-The script, `henonmap.m`, to produce the graph for part A is quite straightforward:
+The script, `henonmap.m`, to produce the graph for part A is quite straightforward once we have the `applymap` function defined above:
 
 ```MATLAB
 step = 0.05;
@@ -35,7 +35,7 @@ iters = 600;
 [x,y] = applymap(x, y, iters);
 ```
 
-It produces lovely images like the following:
+The script takes a set of points `(x,y)` evenly spaced on the `x` axis with random `y` values between `[-1,1]` applies the map `iters` times, and plots the result. It produces lovely images like the following:
 
 ![screen shot 2016-11-05 at 19 09 46](https://cloud.githubusercontent.com/assets/214996/20768464/bd94aa4c-b703-11e6-8239-ebf6d9260533.png)
 
@@ -58,7 +58,11 @@ periods = index'([1,2,5,6])
 % we find that periods = 140, 71, 265, and 81
 ```
 
-This script produces the periods as output: `[140, 71, 265, 81]` and images like the following:
+This script takes the given set of starting points, applies the map 5000 times, finds the points in the map that returned close to thier starting points, and outputs the periods:
+
+`[140, 71, 265, 81]`
+
+It also produces images like the following, where you can clearly see the resonant islands:
 
 ![5000 iters eps 0 005](https://cloud.githubusercontent.com/assets/214996/20768506/ecbfbe6a-b703-11e6-9054-a1f336e5d2da.png)
 
@@ -95,7 +99,7 @@ axis([xfp-0.02,xfp+0.02,yfp-0.02,yfp+0.02]);
 hold off
 ```
 
-Here are some of the trajectories with different parameters
+Here are some of the trajectories with different parameters. Note that you can clearly see the oscillating behavior of the homoclinic tangle.
 
 ![n 500 iters 150](https://cloud.githubusercontent.com/assets/214996/20768566/0b1b8a1a-b704-11e6-932b-d54527d20d05.png)
 
