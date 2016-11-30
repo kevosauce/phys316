@@ -106,3 +106,5 @@ Here are some of the trajectories with different parameters. Note that you can c
 ![n 500 iters 200](https://cloud.githubusercontent.com/assets/214996/20768620/2db7a036-b704-11e6-89c2-6304706472fb.png)
 
 ![n 5000 iters 150](https://cloud.githubusercontent.com/assets/214996/20768624/33184594-b704-11e6-9fef-3ff7f2d608ff.png)
+
+You can find all of the source code, as well as additional images produced (and this write up) at https://github.com/kevosauce/phys316
