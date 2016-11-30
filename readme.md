@@ -1,4 +1,9 @@
-### Phys 316, HW6, Kevin Ullmann
+## Phys 316, HW6, Kevin Ullmann
+## 3.
+
+I chose to write the code using Octave (very similar to MATLAB, but open source) and split the problem into five files. There are four scripts, `henonmap.m, henonmapB.m, henonmapC.m`, and `henonStochastic.m`, and they use a common function defined in `applymap.m` which generates the map.
+
+The common function, defined in applymap.m is here:
 
 ```MATLAB
 function [x,y] = applymap(x,y, iters)
@@ -15,4 +20,75 @@ end
 plot(x',y','.')
 
 end
+```
+
+The function simply appends columns to `x` and `y` with the new points and plots the result.
+
+### 3a
+The script, `henonmap.m`, to produce the graph for part A is quite straightforward:
+
+```MATLAB
+step = 0.05;
+x = [-1:step:1]';
+y = rand(size(x)) * 2 - 1;
+iters = 600;
+[x,y] = applymap(x, y, iters);
+```
+
+It produces lovely images like the following:
+
+[insert image here]
+
+### 3b
+Part B again makes use of `applymap` and here is the code:
+
+```MATLAB
+x = [0.568, 0.593, 0.536, 0.61, 0.55, 0.594, 0.56]';
+y = [0.124, 0.17, 0.1, 0.175, 0.1, 0.15, 0.1]';
+iters = 5000;
+[x,y] = applymap(x,y,iters);
+axis([0.53,0.63,0.1,0.2]);
+eps = 0.005;
+% find all the points in the map within eps of the starting point
+pts = (abs(x(:,2:end) - x(:,1)) < eps & abs(y(:,2:end) - y(:,1)) < eps)';
+% find the first occurrence of a new point close to the original point
+[_, index] = max(pts);
+% starting points 1, 2, 5, and 6 are our resonant island trajectories (found by inspection)
+periods = index'([1,2,5,6])
+% we find that periods = 140, 71, 265, and 81
+```
+
+This script produces the periods as output: `[140, 71, 265, 81]` and images like the following:
+
+[insert images here]
+
+Another script `henonStochastic.m` plots the trajectory of another starting point through the map. Here is that code:
+
+```MATLAB
+x = [0.63];
+y = [0.165];
+iters = 50000;
+[x,y] = applymap(x,y,iters);
+```
+
+The starting point, `(0.63, 0.165)` was found by trial and error.
+
+### 3c
+
+The script for part c is also fairly straightforward. We set up 5000 points on the unstable manifold and use `applymap` to follow their trajectories
+
+```MATLAB
+clf
+xfp = 0.5689367002134077;
+yfp = 0.161844484385035;
+n = 50;
+t = linspace(0,0.02,n)';
+xs = t + xfp;
+ys = yfp - 0.785*t;
+hold on
+iters = 180;
+title(['n=' n ' iters=' iters]);
+[xs,ys] = applymap(xs,ys,iters);
+axis([xfp-0.02,xfp+0.02,yfp-0.02,yfp+0.02]);
+hold off
 ```
