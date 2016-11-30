@@ -37,7 +37,7 @@ iters = 600;
 
 It produces lovely images like the following:
 
-[insert image here]
+![screen shot 2016-11-05 at 19 09 46](https://cloud.githubusercontent.com/assets/214996/20768464/bd94aa4c-b703-11e6-8239-ebf6d9260533.png)
 
 ### 3b
 Part B again makes use of `applymap` and here is the code:
@@ -60,7 +60,7 @@ periods = index'([1,2,5,6])
 
 This script produces the periods as output: `[140, 71, 265, 81]` and images like the following:
 
-[insert images here]
+![5000 iters eps 0 005](https://cloud.githubusercontent.com/assets/214996/20768506/ecbfbe6a-b703-11e6-9054-a1f336e5d2da.png)
 
 Another script `henonStochastic.m` plots the trajectory of another starting point through the map. Here is that code:
 
@@ -71,7 +71,9 @@ iters = 50000;
 [x,y] = applymap(x,y,iters);
 ```
 
-The starting point, `(0.63, 0.165)` was found by trial and error.
+The starting point, `(0.63, 0.165)` was found by trial and error. Here is the plot of this trajectory:
+
+![stochastic pt 0 63 0 165](https://cloud.githubusercontent.com/assets/214996/20768640/4ae0550e-b704-11e6-8a50-bd6422c74e9a.png)
 
 ### 3c
 
@@ -92,3 +94,11 @@ title(['n=' n ' iters=' iters]);
 axis([xfp-0.02,xfp+0.02,yfp-0.02,yfp+0.02]);
 hold off
 ```
+
+Here are some of the trajectories with different parameters
+
+![n 500 iters 150](https://cloud.githubusercontent.com/assets/214996/20768566/0b1b8a1a-b704-11e6-932b-d54527d20d05.png)
+
+![n 500 iters 200](https://cloud.githubusercontent.com/assets/214996/20768620/2db7a036-b704-11e6-89c2-6304706472fb.png)
+
+![n 5000 iters 150](https://cloud.githubusercontent.com/assets/214996/20768624/33184594-b704-11e6-9fef-3ff7f2d608ff.png)
