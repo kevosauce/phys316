@@ -41,16 +41,16 @@ The script takes a set of points `(x,y)` evenly spaced on the `x` axis with rand
 
 `findhops.m` is a very simple script used to illustrate the trajectory of a single point around each of the five resonant islands. For clarity I've shown three different points, each starting near the bottom island. You can see that the trajectories visit each island in turn, in only 5 iterations.
 
-![island hopping](https://cloud.githubusercontent.com/assets/214996/20779846/b728efae-b73c-11e6-9a8a-e202cfdc7dc1.png)
-
-code: (note: `applymap` was slightly altered for this part to draw lines instead of dots along the trajectories. The only change was the line `plot(x',y','.')` was replaced by `plot(x',y')`)
-
 ```MATLAB
 x = [0,0,0]';
 y = [-0.7,-0.6,-0.5]';
 iters = 5;
 [x,y]=applymap(x,y,iters);
 ```
+
+![island hopping](https://cloud.githubusercontent.com/assets/214996/20779846/b728efae-b73c-11e6-9a8a-e202cfdc7dc1.png)
+
+(note: `applymap` was slightly altered for this part to draw lines instead of dots along the trajectories. The only change was the line `plot(x',y','.')` was replaced by `plot(x',y')`)
 
 ### 3b
 Part B again makes use of `applymap` and here is the code:
