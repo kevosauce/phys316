@@ -1,7 +1,7 @@
 ## Phys 316, HW6, Kevin Ullmann
 ## 3.
 
-I chose to write the code using Octave (very similar to MATLAB, but open source 😄) and split the problem into five files. There are four scripts, `henonmap.m, henonmapB.m, henonmapC.m`, and `henonStochastic.m`, and they use a common function defined in `applymap.m` which generates the map.
+I chose to write the code using Octave (very similar to MATLAB, but open source 😄) and split the problem into five files. There are five scripts, `henonmap.m, findhops.m, henonmapB.m, henonmapC.m`, and `henonStochastic.m`, and they use a common function defined in `applymap.m` which generates the map.
 
 The common function, defined in `applymap.m` is here:
 
@@ -38,6 +38,19 @@ iters = 600;
 The script takes a set of points `(x,y)` evenly spaced on the `x` axis with random `y` values between `[-1,1]` applies the map `iters` times, and plots the result. It produces lovely images like the following:
 
 ![screen shot 2016-11-05 at 19 09 46](https://cloud.githubusercontent.com/assets/214996/20768464/bd94aa4c-b703-11e6-8239-ebf6d9260533.png)
+
+`findhops.m` is a very simple script used to illustrate the trajectory of a single point around each of the five resonant islands. For clarity I've shown three different points, each starting near the bottom island. You can see that the trajectories visit each island in turn, in only 5 iterations.
+
+![island hopping](https://cloud.githubusercontent.com/assets/214996/20779846/b728efae-b73c-11e6-9a8a-e202cfdc7dc1.png)
+
+code: (note: `applymap` was slightly altered for this part to draw lines instead of dots along the trajectories. The only change was the line `plot(x',y','.')` was replaced by `plot(x',y')`)
+
+```MATLAB
+x = [0,0,0]';
+y = [-0.7,-0.6,-0.5]';
+iters = 5;
+[x,y]=applymap(x,y,iters);
+```
 
 ### 3b
 Part B again makes use of `applymap` and here is the code:
